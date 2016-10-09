@@ -1,0 +1,28 @@
+/* layer.vsbl file for bzip2 layer  */
+/*
+ * Copyright (c) 2013,2016 Wind River Systems, Inc.
+ *
+ *  This file is released under the terms of the license contained
+ *  in the accompanying file LICENSE_NOTICES.txt
+ */
+
+/*
+Modification history
+--------------------
+06oct16,brk  licensed
+06may13,brk  Created.
+*/
+
+
+Layer BZIP2 {
+ SYNOPSIS     bzip2 compression library 
+ VERSION      1.0.6.0
+ FEATURE      OPEN_SOURCE
+ VENDOR       Wind River 
+ VSB_REQUIRES RTP
+ PARENT       
+ OPTIONAL     YES
+ DEFAULT      YES
+ DOC_BUILD    NO
+ HELP         This layer builds libbz2, bzip2 from bzip2.org  
+}

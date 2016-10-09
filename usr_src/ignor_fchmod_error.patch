@@ -1,0 +1,29 @@
+diff -uNdr bzip2-1.0.6/bzip2.c ../../workspace/VSB_Sim32/3pp/BZIP2/bzip2-1.0.6/bzip2.c
+--- bzip2-1.0.6/bzip2.c	2010-09-10 19:04:53.000000000 -0400
++++ bzip2-1.0.6/bzip2.c	2016-10-07 17:36:00.000000000 -0400
+@@ -152,7 +152,11 @@
+ 
+ #endif /* BZ_LCCWIN32 */
+ 
+-
++#ifdef __VXWORKS__
++#   undef MY_LSTAT
++#   define MY_LSTAT       stat
++#   define fchown(a,b,c)  0
++#endif
+ /*---------------------------------------------*/
+ /*--
+   Some more stuff for all platforms :-)
+@@ -1068,6 +1072,11 @@
+    IntNative retVal;
+ 
+    retVal = fchmod ( fd, fileMetaInfo.st_mode );
++#ifdef __VXWORKS__
++   /* only NFS has file permissions, so ignore error in other cases */
++   if(retVal && (errno == ENOTSUP))
++	   return;
++#endif   
+    ERROR_IF_NOT_ZERO ( retVal );
+ 
+    (void) fchown ( fd, fileMetaInfo.st_uid, fileMetaInfo.st_gid );
+
