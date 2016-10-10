@@ -7,9 +7,9 @@
 #
 #  modification history
 #  --------------------
-#  01a,30nov12,brk  written
+#  06oct16,brk  license
+#  30nov12,brk  written
 #
-include $(WIND_USR_MK)/defs.unix.friend.mk
 
 RTP_BASE_DIR = bzip2
 

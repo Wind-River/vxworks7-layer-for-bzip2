@@ -9,7 +9,6 @@
 #  --------------------
 #  02jun16,brk  written
 #
-include $(WIND_KRNL_MK)/defs.unix.friend.mk
 
 LIB_BASE_NAME   = bz2
 

@@ -1,7 +1,19 @@
 diff -uNdr bzip2-1.0.6/bzip2.c ../../workspace/VSB_Sim32/3pp/BZIP2/bzip2-1.0.6/bzip2.c
 --- bzip2-1.0.6/bzip2.c	2010-09-10 19:04:53.000000000 -0400
-+++ bzip2-1.0.6/bzip2.c	2016-10-07 17:36:00.000000000 -0400
-@@ -152,7 +152,11 @@
++++ bzip2-1.0.6/bzip2.c	2016-10-09 18:14:25.000000000 -0400
+@@ -72,8 +72,9 @@
+ #   include <utime.h>
+ #   include <unistd.h>
+ #   include <sys/stat.h>
+-#   include <sys/times.h>
+-
++# ifndef __VXWORKS__
++#      include <sys/times.h>
++# endif
+ #   define PATH_SEP    '/'
+ #   define MY_LSTAT    lstat
+ #   define MY_STAT     stat
+@@ -152,7 +153,11 @@
  
  #endif /* BZ_LCCWIN32 */
  
@@ -14,7 +26,7 @@ diff -uNdr bzip2-1.0.6/bzip2.c ../../workspace/VSB_Sim32/3pp/BZIP2/bzip2-1.0.6/b
  /*---------------------------------------------*/
  /*--
    Some more stuff for all platforms :-)
-@@ -1068,6 +1072,11 @@
+@@ -1068,6 +1073,11 @@
     IntNative retVal;
  
     retVal = fchmod ( fd, fileMetaInfo.st_mode );
@@ -26,4 +38,3 @@ diff -uNdr bzip2-1.0.6/bzip2.c ../../workspace/VSB_Sim32/3pp/BZIP2/bzip2-1.0.6/b
     ERROR_IF_NOT_ZERO ( retVal );
  
     (void) fchown ( fd, fileMetaInfo.st_uid, fileMetaInfo.st_gid );
-
