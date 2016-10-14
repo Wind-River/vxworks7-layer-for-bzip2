@@ -22,6 +22,7 @@ ADDED_LIBS = -lbz2
 
 include $(WIND_USR_MK)/rules.rtp.mk
 
+# suppress expected warnings in 3rd party code 
 ifeq ($(TOOL),gnu)
 CFLAGS_bzip2.o =  -Wno-unused-but-set-variable
 endif

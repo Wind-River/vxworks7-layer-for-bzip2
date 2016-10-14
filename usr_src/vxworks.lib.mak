@@ -27,6 +27,10 @@ OBJS= blocksort.o  \
 
 include $(WIND_USR_MK)/rules.library.mk
 
+# suppress expected warnings in 3rd party code 
 ifeq ($(TOOL),diab)
 CFLAGS_bzlib.o =  -ei4111
+endif
+ifeq ($(TOOL),gnu)
+ADDED_CFLAGS =  -Wno-conversion
 endif
