@@ -6,7 +6,11 @@ utility as an RTP.
 #### Setup 
 Use the **Download Zip**, (or checkout) feature of GitHub to place the contents of this repository in your VxWorks&reg; install tree at an appropriate location, for example:
 
-  *installDir*/vxworks-7/pkgs/apps
+  *  Go to  https://github.com/Wind-River/vxworks7-layer-for-bzip2
+  *  Download a zip of the layer using the link provided by GitHub.
+	 ![](./docs/github_download.png)
+  *	Unzip into your VxWorks install directory in an appropriate place in the packages directory, typically;
+      ***InstallDir*/vxworks-7/pkgs/app**
 
 #### Build 
 1. Create a VSB project. 

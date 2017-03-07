@@ -1,6 +1,6 @@
 /* layer.vsbl file for bzip2 layer  */
 /*
- * Copyright (c) 2013,2016 Wind River Systems, Inc.
+ * Copyright (c) 2013,2016-2017 Wind River Systems, Inc.
  *
  * This file is released under the terms of the bzip2-1.0.6 license. 
  * A copy of the license can be found  at www.spdx.org/licenses.
@@ -9,6 +9,7 @@
 /*
 Modification history
 --------------------
+13jan17,brk  set DEFAULT to NO for 3rd party layer
 06oct16,brk  licensed
 06may13,brk  Created.
 */

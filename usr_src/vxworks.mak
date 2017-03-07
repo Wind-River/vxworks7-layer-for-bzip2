@@ -6,7 +6,10 @@
 # A copy of the license can be found  at www.spdx.org/licenses.
 #
 # modification history
-# -------------------- 
+# --------------------
+# 05jan17,dlk  Do not set -Wno-unused-but-set-variable for 6.9 compatible
+#              builds because they use an older gcc version that does not
+#              support it.
 # 06oct16,brk  licensed
 # 30nov12,brk  written
 #
@@ -18,11 +21,12 @@ EXE= $(VXE).vxe
 
 OBJS = $(VXE).o
 
-ADDED_LIBS = -lbz2 
+ADDED_LIBS = -lbz2
 
 include $(WIND_USR_MK)/rules.rtp.mk
 
-# suppress expected warnings in 3rd party code 
 ifeq ($(TOOL),gnu)
+ifneq ($(_WRS_CONFIG_COMPAT69),y)
 CFLAGS_bzip2.o =  -Wno-unused-but-set-variable
+endif
 endif
